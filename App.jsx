@@ -50,7 +50,7 @@ function App() {
     if (hours_left < 0){
       return ("Sun has already set.")
     }else{
-      return (`${hours_left.toFixed(0)} hrs ${mins_left.toFixed(0)} mins`)
+      return (`${hours_left.toFixed(0)} hrs ${mins_left.toFixed(0)} mins UTC`)
     }
   }
 
@@ -78,7 +78,7 @@ function App() {
     if (hours_left < 0){
       return ("Sun has already risen.")
     }else{
-      return (`${hours_left.toFixed(0)} hrs ${mins_left.toFixed(0)} mins`)
+      return (`${hours_left.toFixed(0)} hrs ${mins_left.toFixed(0)} mins UTC`)
     }
   }
 
@@ -93,22 +93,42 @@ function App() {
   }
 
   const filterResults = (search) => {
+    // return weather // This searches ALL the values in item, but does not display specific values to match what's entered. If you enter the % for humidity, it will show ALL the data on that item, not just humidity.
+    //   .filter(item => {
+    //     search = search.toLowerCase();
+
+    //     return Object.values(item).some(value => String(value).toLowerCase().includes(search)) // Within the Object, for values in item, .some -> if value is included in search, return TRUE
+    //   })
+    //   .map((item, index) => (
+    //     <li key={index}>
+    //       Nearest Reporting Station ID: <b>{item.station}</b>
+    //       <br></br>
+    //       Humidity: <b>{item.rh}%</b>
+    //     </li>
+    //   )
+    // );
+
     return weather
       .filter(item => item.city_name.toLowerCase().includes(search.toLowerCase()))
       .map((item, index) => (
-        <li key={index}>{item.city_name} - {item.temp}°C</li>
-      ));
-    // const results = weather.filter(item =>
-    //   item.city_name.toLowerCase().includes(search.toLowerCase())
-    // );
+        <li key={index}>
+          {item.city_name} - {item.temp}°C<br></br><br></br>
+          Humidity: {current.rh}%<br></br>
+          Air Quality Index: {current.aqi}<br></br>
+          Precipitation: {current.precip}<br></br>
+          UV Index (0-11+): {current.uv}<br></br>
+          Solar Radiation: {current.solar_rad}<br></br>
 
-    // return (
-    //   <ul>
-    //     {results.map((item, index) => (
-    //       <li key={index}>{item.city_name} - {item.temp}°C</li>
-    //     ))}
-    //   </ul>
-    // )
+          Pressure (mb): {current.pres}<br></br>
+          Sea Level Pressure (mb): {current.slp}<br></br>
+          Cloud Coverage: {current.clouds}<br></br>
+          Wind Speed: {current.wind_spd}<br></br>
+          Gust: {current.gust}<br></br>
+          Wind Direction: {current.wind_cdir}<br></br>
+        </li>
+      )
+    );
+  
   }
 
   const current = weather[0]
@@ -128,11 +148,11 @@ function App() {
           <div className="summary-cards">
             <div className="card">
               <h2>Time Until Sunset</h2>
-              <h3>{sunsetCountdown()} UTC</h3>
+              <h3>{sunsetCountdown()}</h3>
             </div>
             <div className="card">
               <h2>Time Until Sunrise</h2> 
-              <h3>{sunriseCountdown()} UTC</h3>
+              <h3>{sunriseCountdown()}</h3>
             </div>
             <div className="card">
               <h2>Real Feel & Temp Difference</h2> 
@@ -173,7 +193,7 @@ function App() {
 
             <br></br>
 
-            <p>Humidity: {current.rh}%</p>
+            {/* <p>Humidity: {current.rh}%</p>
             <p>Air Quality Index: {current.aqi}</p>
             <p>Precipitation: {current.precip}</p>
             <p>UV Index (0-11+): {current.uv}</p>
@@ -184,7 +204,7 @@ function App() {
             <p>Cloud Coverage: {current.clouds}</p>
             <p>Wind Speed: {current.wind_spd}</p>
             <p>Gust: {current.gust}</p>
-            <p>Wind Direction: {current.wind_cdir}</p>
+            <p>Wind Direction: {current.wind_cdir}</p> */}
           </div>
         )}
       </div>
