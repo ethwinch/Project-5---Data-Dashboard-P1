@@ -35,13 +35,11 @@ The following **optional** features are implemented:
 
 ## Video Walkthrough
 
-Walkthrough will be added once my API request limit is refreshed. I'm all outta requests right now soooo :p
+Here's a walkthrough of implemented user stories:
 
-<!--Here's a walkthrough of implemented user stories:
+<a href="https://drive.google.com/file/d/173ZN0fxmxhHV_XqEsWCHqBa9f1nLRilG/view?usp=sharing" target="_blank">Click here for a GIF of the walkthrough!</a>
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /> -->
-
-<!-- GIF created with ...  -->
+GIF created with ezGif
 
 ## Notes
 
