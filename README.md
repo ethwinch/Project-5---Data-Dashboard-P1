@@ -45,7 +45,7 @@ Walkthrough will be added once my API request limit is refreshed. I'm all outta 
 
 ## Notes
 
-I wasn't really sure how to implement a search functions that searches within the city data.
+I wanted to search by individual bits of data on the city- such as humidity, station name, etc. -but I couldn't figure out how to search by individual items within the object without copy and pasting code or creating a ridiculous amount of condition statements. If I had more time, I'd like to try to properly implement this feature.
 
 ## License
 
